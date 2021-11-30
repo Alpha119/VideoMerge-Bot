@@ -280,7 +280,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.message.edit("Successfully Merged Video!")
         await asyncio.sleep(Config.TIME_GAP)
         file_size = os.path.getsize(merged_vid_path)
-        if int(file_size) > 2097152000:
+        if int(file_size) > 97152000:
             await cb.message.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
             await UploadToStreamtape(file=merged_vid_path, editable=cb.message, file_size=file_size)
             await delete_all(root=f"{Config.DOWN_PATH}/{cb.from_user.id}/")
